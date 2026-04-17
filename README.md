@@ -139,7 +139,7 @@ typedef std::unordered_map<std::string, SymTabEntry> SymTabType; // Map ident to
 查询一个符号时, 先在`symTabs`尾部的符号表查询, 如果找不到, 再去上一个符号表中查询, 以此类推.
 
 #### 2.3.2 寄存器分配策略
-采取了一种简单的分配策略, 参考了[这个实现](https://github.com/GeorgeMLP/sysy-compiler/tree/master).
+采取了一种简单的分配策略, 参考了相关公开实现.
 
 大致思路: 定义了一个优先级enum, 为每个寄存器维护一个当前优先级状态, 包括`high` / `mid` / `low`三类:
 ```c
