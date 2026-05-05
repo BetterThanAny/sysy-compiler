@@ -40,6 +40,16 @@ SRC_DIR := $(TOP_DIR)/src
 BUILD_DIR ?= $(TOP_DIR)/build
 LIB_DIR ?= $(CDE_LIBRARY_PATH)/native
 INC_DIR ?= $(CDE_INCLUDE_PATH)
+
+ifneq ($(MAKECMDGOALS),clean)
+ifeq ($(strip $(CDE_INCLUDE_PATH)),)
+$(error CDE_INCLUDE_PATH is required; set it to the directory containing koopa.h)
+endif
+ifeq ($(strip $(CDE_LIBRARY_PATH)),)
+$(error CDE_LIBRARY_PATH is required; set it to the directory containing native/libkoopa)
+endif
+endif
+
 CFLAGS += -I$(INC_DIR)
 CXXFLAGS += -I$(INC_DIR)
 LDFLAGS += -L$(LIB_DIR) -lkoopa

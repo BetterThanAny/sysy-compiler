@@ -1116,7 +1116,7 @@ class RelExpAST : public BaseAST{
             else if (op == "<"){
                 return relExp->CalValue() < subExp->CalValue();
             }
-            else if (op == ">="){
+            else if (op == "<="){
                 return relExp->CalValue() <= subExp->CalValue();
             }
             else assert(false);
@@ -1208,7 +1208,7 @@ class LAndExpAST : public BaseAST{
             if (op == ""){
                 return subExp->CalValue();
             }
-            else if (op == "||"){
+            else if (op == "&&"){
                 return lAndExp->CalValue() && subExp->CalValue();
             }
             else assert(false);
